@@ -18,17 +18,22 @@
                     </div>
                 </div><!-- /rm-content -->
         </div><!-- /rm-front -->
+        <menu-left-component></menu-left-component>
     </div>
 </template>
 
 <script>
+import MenuLeft from './MenuLeft.vue'
 export default {
-  methods: {
-      openMenu(){
-          var container = $( '#rm-container' )
-          container.addClass( 'rm-open' )
-      }
-  }
+    components: {
+        MenuLeftComponent: MenuLeft,
+    },
+    methods: {
+        openMenu(){
+            var container = $( '#rm-container' )
+            container.addClass( 'rm-open' )
+        }
+    }
 }
 </script>
 
