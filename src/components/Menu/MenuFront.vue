@@ -4,27 +4,28 @@
                 <div class="rm-content">
 
                     <div class="rm-logo"></div>
-                    <h2>Gourmet Castle</h2>
-                    <h3>Fine Dining &amp; Gourmet Takeaway</h3>
+                    <h2>{{frontMenu.title}}</h2>
+                    <h3>{{frontMenu.subtitle}}</h3>
 
                     <a href="#" class="rm-button-open" @click="openMenu">View the Menu</a>
-                    <div class="rm-info">
+                    <div v-if="frontMenu.contact != null" class="rm-info">
                         <p>
-                        <strong>Gourmet Castle Restaurant</strong><br>
-                        246 Wonderful Paradise Ln.<br>
-                        Pasadena, CA 91101<br>
-                        <strong>Phone</strong> 626.511.1170<br>
-                        <strong>Fax</strong> 626.992.1020</p>
+                        <strong>{{frontMenu.contact.line1}}</strong><br>
+                        {{frontMenu.contact.line2}}<br>
+                        {{frontMenu.contact.line3}}<br>
+                        <strong>Phone: </strong>{{frontMenu.contact.phone}}<br>
+                        <strong>Fax: </strong>{{frontMenu.contact.fax}}</p>
                     </div>
                 </div><!-- /rm-content -->
         </div><!-- /rm-front -->
-        <menu-left-component></menu-left-component>
+        <menu-left-component :dishTypes="leftMenu" ></menu-left-component>
     </div>
 </template>
 
 <script>
 import MenuLeft from './MenuLeft.vue'
 export default {
+    props: ['leftMenu', 'frontMenu'],
     components: {
         MenuLeftComponent: MenuLeft,
     },
